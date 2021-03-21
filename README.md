@@ -33,7 +33,7 @@ root/
  |   Pipfile.lock
  |   requirements.txt
 ```
-<br/><br/>
+<br/>
 
 The main Python module is the ETL job, `jobs/etl.py`,  which is going to be send it to Spark.  
 The source events of the recipes stored as json files, are located on, `input/*.json`.  
