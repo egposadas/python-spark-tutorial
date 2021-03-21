@@ -8,10 +8,7 @@ This document objetive is to provide a detail explanation on the solution for th
 - [X] Method for logging and alerting using log4j.
 - [X] Unit test for the etl components.
 - [X] Data Quality validations.
-- [X] Theoretical implementation scenarios:
-    - [X] CI/CD implementation
-    - [X] Performance tunning
-    - [X] Scheduled pipelines
+- [X] Theoretical implementation scenarios.
 
 ## Project Structure
 ```bash
@@ -36,6 +33,11 @@ root/
 <br/>
 
 The main Python module is the ETL job, `jobs/etl.py`,  which is going to be send it to Spark.  
+
+Loging and helper m,oudles are on `dependencies` folder.
+In the root you can find  `make.sh`, a bash script for building the dependencies into a zip-file to be sent to the cluster (`packages.zip`).
+Unit test modules are kept in the `tests` folder and small chunks of representative input and output data, to be used with the tests, are kept in `tests/test_data` folder.
+
 The source events of the recipes stored as json files, are located on, `input/*.json`.  
 The persist dataset as CSV that only containts the recipes that have `beef` as one of the ingredients is located on, `output/beef_recipes.csv`. This file contains 2 columns: `difficulty,avg_total_cooking_time`.  
 
@@ -46,14 +48,7 @@ The persist dataset as CSV that only containts the recipes that have `beef` as o
         easy < 30 min
         30 min < medium > 60 min
         hard > 60 min
-```  
-
-Criteria for levels based on total cook time duration:
-- easy - less than 30 mins
-- medium - between 30 and 60 mins
-- hard - more than 60 mins.
-
-The main Python module containing the ETL job (which will be sent to the Spark cluster), is `jobs/etl_job.py`. Any external configuration parameters required by `etl_job.py` are stored in JSON format in `configs/etl_config.json`. Additional modules that support this job can be kept in the `dependencies` folder (more on this later). In the project's root we include `build_dependencies.sh`, which is a bash script for building these dependencies into a zip-file to be sent to the cluster (`packages.zip`). Unit test modules are kept in the `tests` folder and small chunks of representative input and output data, to be used with the tests, are kept in `tests/test_data` folder.
+```
 
 
 ## Assumptions / Considerations
@@ -61,3 +56,9 @@ The main Python module containing the ETL job (which will be sent to the Spark c
 
 ## ETL approach
 
+## Theoretical implementation scenarios:
+### CI/CD implementation
+
+### Performance tunning
+
+### Scheduled pipelines
