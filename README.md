@@ -34,9 +34,9 @@ root/
 
 The main Python module is the ETL job, `jobs/etl.py`,  which is going to be send it to Spark.  
 
-Loging and helper m,oudles are on `dependencies` folder.
-In the root you can find  `make.sh`, a bash script for building the dependencies into a zip-file to be sent to the cluster (`packages.zip`).
-Unit test modules are kept in the `tests` folder and small chunks of representative input and output data, to be used with the tests, are kept in `tests/test_data` folder.
+Loging and helper m,oudles are on `dependencies` folder.  
+In the root you can find  `make.sh`, a bash script for building the dependencies into a zip-file to be sent to the cluster (`packages.zip`).  
+Unit test modules are kept in the `tests` folder and small chunks of representative input and output data, to be used with the tests, are kept in `tests/test_data` folder.  
 
 The source events of the recipes stored as json files, are located on, `input/*.json`.  
 The persist dataset as CSV that only containts the recipes that have `beef` as one of the ingredients is located on, `output/beef_recipes.csv`. This file contains 2 columns: `difficulty,avg_total_cooking_time`.  
